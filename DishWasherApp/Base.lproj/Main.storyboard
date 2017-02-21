@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Page Grid View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageGridViewController" id="BYZ-38-t0r" customClass="PageGridViewController" customModule="DishWasherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="su5-XH-CAZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CTA-CY-y8R">
+                                    <size key="itemSize" width="298" height="329"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productInfoCell" id="iG1-SR-PEk" customClass="PageGridCollectionCell" customModule="DishWasherApp" customModuleProvider="target">
+                                        <rect key="frame" x="38.5" y="0.0" width="298" height="329"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="329"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-qv-AWk">
+                                                    <rect key="frame" x="30" y="18" width="238" height="189"/>
+                                                    <color key="backgroundColor" red="0.7843137255" green="0.2666666667" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="189" id="qrG-Sn-5Zw"/>
+                                                        <constraint firstAttribute="width" constant="238" id="r8N-pX-Bcv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpO-we-NTS">
+                                                    <rect key="frame" x="8" y="217" width="282" height="61"/>
+                                                    <string key="text">dasjdgasjdgajdgkasdgkcasdfajsdjfasjdfjasdjasjd
+sdgasdgahsgdkas
+shdfjasdagshjsadashdkashkdasd</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrW-Bg-bQe">
+                                                    <rect key="frame" x="8" y="286" width="282" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="MpO-we-NTS" firstAttribute="trailing" secondItem="iG1-SR-PEk" secondAttribute="trailingMargin" id="6lY-3Z-G8M"/>
+                                            <constraint firstItem="PyD-qv-AWk" firstAttribute="leading" secondItem="iG1-SR-PEk" secondAttribute="leadingMargin" constant="22" id="Fnb-0W-fJI"/>
+                                            <constraint firstItem="CrW-Bg-bQe" firstAttribute="leading" secondItem="iG1-SR-PEk" secondAttribute="leadingMargin" id="NjG-ge-00Z"/>
+                                            <constraint firstItem="CrW-Bg-bQe" firstAttribute="trailing" secondItem="iG1-SR-PEk" secondAttribute="trailingMargin" id="Ruv-vF-13q"/>
+                                            <constraint firstItem="MpO-we-NTS" firstAttribute="top" secondItem="PyD-qv-AWk" secondAttribute="bottom" constant="10" id="cSp-63-0J3"/>
+                                            <constraint firstItem="PyD-qv-AWk" firstAttribute="top" secondItem="iG1-SR-PEk" secondAttribute="topMargin" constant="10" id="hle-WA-bQS"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="PyD-qv-AWk" secondAttribute="trailing" constant="22" id="it4-x3-wEA"/>
+                                            <constraint firstItem="CrW-Bg-bQe" firstAttribute="top" secondItem="MpO-we-NTS" secondAttribute="bottom" constant="8" id="k1L-51-j5h"/>
+                                            <constraint firstItem="MpO-we-NTS" firstAttribute="leading" secondItem="iG1-SR-PEk" secondAttribute="leadingMargin" id="tbY-kT-CSU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="PyD-qv-AWk" id="MNg-pg-wBc"/>
+                                            <outlet property="price" destination="CrW-Bg-bQe" id="RGd-D8-MZg"/>
+                                            <outlet property="title" destination="MpO-we-NTS" id="xZc-jR-9rN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DLN-4h-7lB">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DLN-4h-7lB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6rA-4q-prz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="su5-XH-CAZ" secondAttribute="bottom" id="DZ1-xU-XaQ"/>
+                            <constraint firstItem="su5-XH-CAZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gW2-4r-ycB"/>
+                            <constraint firstItem="DLN-4h-7lB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m47-hd-B1R"/>
+                            <constraint firstItem="su5-XH-CAZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wud-Ks-hE4"/>
+                            <constraint firstAttribute="trailing" secondItem="su5-XH-CAZ" secondAttribute="trailing" id="y36-oB-PVb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="DLN-4h-7lB" id="SAb-l9-xys"/>
+                        <outlet property="collectionView" destination="su5-XH-CAZ" id="Iyh-t8-SNk"/>
+                        <outlet property="dataProvider" destination="OLf-mL-K5J" id="ZJJ-5s-S4e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="OLf-mL-K5J" customClass="PageGridDataProvider" customModule="DishWasherApp" customModuleProvider="target"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>

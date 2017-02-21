@@ -12,7 +12,6 @@
 		0A9DA7101E5BE05C0048F7F0 /* ProductDetailInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9DA70F1E5BE05C0048F7F0 /* ProductDetailInfoManager.swift */; };
 		0A9DA7121E5BE36D0048F7F0 /* ProductDetailInfoManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9DA7111E5BE36D0048F7F0 /* ProductDetailInfoManagerTest.swift */; };
 		0AD291C11E5B4B4100DDC77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD291C01E5B4B4100DDC77F /* AppDelegate.swift */; };
-		0AD291C31E5B4B4100DDC77F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD291C21E5B4B4100DDC77F /* ViewController.swift */; };
 		0AD291C61E5B4B4100DDC77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD291C41E5B4B4100DDC77F /* Main.storyboard */; };
 		0AD291C91E5B4B4100DDC77F /* DishWasherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AD291C71E5B4B4100DDC77F /* DishWasherApp.xcdatamodeld */; };
 		0AD291CB1E5B4B4100DDC77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD291CA1E5B4B4100DDC77F /* Assets.xcassets */; };
@@ -27,6 +26,11 @@
 		0AD292031E5B63D100DDC77F /* ProductDetailInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD292021E5B63D100DDC77F /* ProductDetailInfoTest.swift */; };
 		0AD292431E5B753D00DDC77F /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD292421E5B753D00DDC77F /* NetWorkManager.swift */; };
 		0AD292471E5B7A7A00DDC77F /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD292461E5B7A7A00DDC77F /* NetworkManagerTest.swift */; };
+		8608065B1E5C44AF00023400 /* PageGridDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8608065A1E5C44AF00023400 /* PageGridDataProvider.swift */; };
+		861063EC1E5C761400BAC432 /* PageGridCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861063EB1E5C761400BAC432 /* PageGridCollectionCell.swift */; };
+		861063F01E5C7B6B00BAC432 /* PageGridDataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861063EF1E5C7B6B00BAC432 /* PageGridDataProviderTest.swift */; };
+		86D5CDDB1E5C3C99008B734E /* PageGridViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5CDDA1E5C3C99008B734E /* PageGridViewControllerTest.swift */; };
+		86D5CDDE1E5C3F38008B734E /* PageGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5CDDD1E5C3F38008B734E /* PageGridViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +57,6 @@
 		0A9DA7111E5BE36D0048F7F0 /* ProductDetailInfoManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailInfoManagerTest.swift; sourceTree = "<group>"; };
 		0AD291BD1E5B4B4100DDC77F /* DishWasherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DishWasherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD291C01E5B4B4100DDC77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AD291C21E5B4B4100DDC77F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AD291C51E5B4B4100DDC77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AD291C81E5B4B4100DDC77F /* DishWasherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DishWasherApp.xcdatamodel; sourceTree = "<group>"; };
 		0AD291CA1E5B4B4100DDC77F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +76,11 @@
 		0AD292021E5B63D100DDC77F /* ProductDetailInfoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailInfoTest.swift; sourceTree = "<group>"; };
 		0AD292421E5B753D00DDC77F /* NetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		0AD292461E5B7A7A00DDC77F /* NetworkManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
+		8608065A1E5C44AF00023400 /* PageGridDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageGridDataProvider.swift; sourceTree = "<group>"; };
+		861063EB1E5C761400BAC432 /* PageGridCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageGridCollectionCell.swift; sourceTree = "<group>"; };
+		861063EF1E5C7B6B00BAC432 /* PageGridDataProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageGridDataProviderTest.swift; sourceTree = "<group>"; };
+		86D5CDDA1E5C3C99008B734E /* PageGridViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageGridViewControllerTest.swift; sourceTree = "<group>"; };
+		86D5CDDD1E5C3F38008B734E /* PageGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageGridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +131,10 @@
 		0AD291BF1E5B4B4100DDC77F /* DishWasherApp */ = {
 			isa = PBXGroup;
 			children = (
+				86D5CDDC1E5C3F14008B734E /* Controller */,
 				0AD292411E5B750200DDC77F /* NetworkManager */,
 				0AD291F11E5B4BBF00DDC77F /* Model */,
 				0AD291C01E5B4B4100DDC77F /* AppDelegate.swift */,
-				0AD291C21E5B4B4100DDC77F /* ViewController.swift */,
 				0AD291C41E5B4B4100DDC77F /* Main.storyboard */,
 				0AD291CA1E5B4B4100DDC77F /* Assets.xcassets */,
 				0AD291CC1E5B4B4100DDC77F /* LaunchScreen.storyboard */,
@@ -232,8 +240,20 @@
 		86D5CDD91E5C1BEE008B734E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				86D5CDDA1E5C3C99008B734E /* PageGridViewControllerTest.swift */,
+				861063EF1E5C7B6B00BAC432 /* PageGridDataProviderTest.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		86D5CDDC1E5C3F14008B734E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				86D5CDDD1E5C3F38008B734E /* PageGridViewController.swift */,
+				8608065A1E5C44AF00023400 /* PageGridDataProvider.swift */,
+				861063EB1E5C761400BAC432 /* PageGridCollectionCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,8 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD291C91E5B4B4100DDC77F /* DishWasherApp.xcdatamodeld in Sources */,
+				8608065B1E5C44AF00023400 /* PageGridDataProvider.swift in Sources */,
+				861063EC1E5C761400BAC432 /* PageGridCollectionCell.swift in Sources */,
+				86D5CDDE1E5C3F38008B734E /* PageGridViewController.swift in Sources */,
 				0AD291F41E5B4C0200DDC77F /* ProductInfo.swift in Sources */,
-				0AD291C31E5B4B4100DDC77F /* ViewController.swift in Sources */,
 				0A9DA70A1E5BC7650048F7F0 /* ProductInfoManager.swift in Sources */,
 				0AD291F61E5B4CFC00DDC77F /* Price.swift in Sources */,
 				0AD292431E5B753D00DDC77F /* NetWorkManager.swift in Sources */,
@@ -388,10 +410,12 @@
 			files = (
 				0AD291FD1E5B572200DDC77F /* PriceTest.swift in Sources */,
 				0AD291D91E5B4B4100DDC77F /* DishWasherAppTests.swift in Sources */,
+				86D5CDDB1E5C3C99008B734E /* PageGridViewControllerTest.swift in Sources */,
 				0AD292031E5B63D100DDC77F /* ProductDetailInfoTest.swift in Sources */,
 				0AD292471E5B7A7A00DDC77F /* NetworkManagerTest.swift in Sources */,
 				0AD291FB1E5B534F00DDC77F /* ProductInfoTest.swift in Sources */,
 				0A9DA70C1E5BC8EE0048F7F0 /* ProductInfoManagerTest.swift in Sources */,
+				861063F01E5C7B6B00BAC432 /* PageGridDataProviderTest.swift in Sources */,
 				0A9DA7121E5BE36D0048F7F0 /* ProductDetailInfoManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
