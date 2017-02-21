@@ -51,8 +51,6 @@ class ProductDetailInfoManagerTest: XCTestCase {
             XCTAssertEqual(productDetailInfoObj.productSpecificationName,"Dimensions")
             XCTAssertEqual(productDetailInfoObj.valueOfProductSpecification,"H81.5 x W59.8 x D55cm")
             
-            //comment
-            
         }
         
     }
