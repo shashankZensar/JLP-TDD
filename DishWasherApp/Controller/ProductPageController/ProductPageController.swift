@@ -49,6 +49,26 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
         super.viewDidLoad()
         self.setupDataSourceAndDelegate()
         self.getProductDetail()
+        self.view.setNeedsLayout()
+        viewRightContainerWidthConstraint.constant = 0
+        self.view.setNeedsUpdateConstraints()
+        
+        
+        setFrameAccordingToOrientation(viewWidth: self.view.frame.width)
+
+    }
+    
+    func setupInitalScrollViewWidth(){
+        
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            
+            scrollViewWidthConstraint.constant = self.view.frame.width * 0.6
+            
+        } else if  UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            
+            scrollViewWidthConstraint.constant = self.view.frame.width
+            
+        }
     }
     
     /**
@@ -60,6 +80,7 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
         collectionView.dataSource = dataProvider
         collectionView.delegate = dataProvider
         dataProvider.delegate = self
+        dataProvider.view = self.view
     }
     
     /**
@@ -86,18 +107,19 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
         
     }
 
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        setFrameAccordingToOrientation()
+        print(size.width)
+        setFrameAccordingToOrientation(viewWidth: size.width)
 
     }
     
-    func setFrameAccordingToOrientation()  {
-        var viewWidth = self.view.frame.size.width;
+    func setFrameAccordingToOrientation(viewWidth:CGFloat)  {
+        
         self.view.setNeedsLayout()
         
         if UIDevice.current.orientation.isLandscape {
-            viewWidth = 1024
+            //viewWidth = 1024
             scrollViewWidthConstraint.constant = viewWidth * 0.6
             viewRightContainerWidthConstraint.constant = viewWidth * 0.4
             viewProductSubTopConstaraint.constant = 0
@@ -107,7 +129,7 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
             viewRightContainer.addSubview(viewProductMain)
             
         }else{
-            viewWidth = 768
+            //viewWidth = 768
             scrollViewWidthConstraint.constant = viewWidth
             viewRightContainerWidthConstraint.constant = 0
             viewProductSubTopConstaraint.constant = 158
