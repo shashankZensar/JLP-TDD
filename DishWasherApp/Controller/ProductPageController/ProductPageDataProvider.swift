@@ -18,6 +18,8 @@ class ProductPageDataProvider: NSObject,UICollectionViewDataSource,UICollectionV
     
     var imageUrl:[String] = []
     var delegate:scrollViewScrollEndDelegate?
+    var view :UIView! // used for Containing View
+
 
     // MARK: - Collection View DataSource Function
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,6 +65,23 @@ class ProductPageDataProvider: NSObject,UICollectionViewDataSource,UICollectionV
         
         delegate?.didScrollViewEndScrolling(scrollViewContentOffset: scrollView.contentOffset.x)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var sizeWidth:CGFloat = 0.0
+        
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            
+            sizeWidth = collectionView.frame.width + 200
+            
+        } else if  UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            
+            sizeWidth = collectionView.frame.width
+        }
+        
+        
+        return CGSize(width: sizeWidth, height: 266)
     }
     
 
