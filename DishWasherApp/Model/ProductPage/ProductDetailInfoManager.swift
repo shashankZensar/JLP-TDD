@@ -10,6 +10,21 @@ import Foundation
 
 class ProductDetailInfoManager{
     
+    
+    // MARK: - Class methods
+
+    
+    /**
+     This function called NetworkManager Inorder to get data from server.
+     
+     - parameter productID: product ID
+     
+     - parameter completion: completion handler which give ProductDetailInfo object after sucessfull server parse
+     
+     - returns: No Return Value
+     
+     */
+    
     func getTheProductDetailInfo(productID:String,completion: @escaping (ProductDetailInfo) -> Void){
         
         let strUrl = "https://api.johnlewis.com/v1/products/\(productID)?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb"
@@ -29,7 +44,7 @@ class ProductDetailInfoManager{
                 return
             }
             
-            print(dic)
+            //print(dic)
             
             let arrProductDetailInfo = self.parseTheDic(dic: dic)
             
@@ -39,73 +54,81 @@ class ProductDetailInfoManager{
         
     }
     
+
+    /**
+     This private function called parse the dictionary and give data in form ProductDetailInfoObj.
+     
+     - parameter dic: dic get from NetworkManager manger after getting server Response
+     
+     - parameter completion: completion handler which give ProductDetailInfo object after sucessfull server parse
+     
+     - returns: No Return Value
+     
+     */
     private func parseTheDic(dic:[String:AnyObject])->ProductDetailInfo{
         
-        let title = dic["title"] as? String
+        let title = dic[kTitle] as? String
         
-        print(title ?? "")
 
-        let media = dic["media"] as? [String:AnyObject]
+        let media = dic[kMedia] as? [String:AnyObject]
+        
+
+        let images = media?[kImages] as? [String:AnyObject]
+        
+        let imagesUrl = images?[kUrls] as? [String]
         
         
+        //print(imagesUrl ?? [])
         
-        let images = media?["images"] as? [String:AnyObject]
+        let priceObj = dic[kPrice] as? [String:String]
         
-        let imagesUrl = images?["urls"] as? [String]
+        let price = priceObj?[kNow]
         
-        
-        print(imagesUrl ?? [])
-        
-        let priceObj = dic["price"] as? [String:String]
-        
-        let price = priceObj?["now"]
-        
-        print(price ?? "")
 
         
-        let detail = dic["details"] as? [String:AnyObject]
+        let detail = dic[kDetails] as? [String:AnyObject]
         
-        let productInformation = detail?["productInformation"] as? String
+        let productInformation = detail?[kProductInformation] as? String
         
-        print(productInformation ?? "")
+        //print(productInformation ?? "")
 
         
-        let displaySpecialOffer = dic["displaySpecialOffer"] as? String
+        let displaySpecialOffer = dic[kDisplaySpecialOffer] as? String
         
-        print(displaySpecialOffer ?? "")
+        //print(displaySpecialOffer ?? "")
 
         
-        let code = dic["code"] as? String
+        let code = dic[kCode] as? String
         
-        print(code ?? "")
+        //print(code ?? "")
 
         
-        let additionalServices = dic["additionalServices"] as? [String:AnyObject]
+        let additionalServices = dic[kAdditionalServices] as? [String:AnyObject]
         
         
         
-        let arrIncludedServices = additionalServices?["includedServices"] as? [String]
+        let arrIncludedServices = additionalServices?[kIncludedServices] as? [String]
         
         let includedServices = arrIncludedServices?[0]
         
-        print(includedServices ?? "")
+        //print(includedServices ?? "")
 
         
-        let feature = detail?["features"] as? [AnyObject]
+        let feature = detail?[kFeatures] as? [AnyObject]
         
-        print(feature?[0] ?? [])
+        //print(feature?[0] ?? [])
         
-        let attributes = feature?[0]["attributes"] as? [AnyObject]
+        let attributes = feature?[0][kAttributes] as? [AnyObject]
         
-        print(attributes ?? [])
+        //print(attributes ?? [])
         
-        let productSpecificationName = attributes?[0]["name"] as? String
+        let productSpecificationName = attributes?[0][kName] as? String
         
-        let valueOfProductSpecification = attributes?[0]["value"] as? String
+        let valueOfProductSpecification = attributes?[0][kValue] as? String
         
-       print(productSpecificationName ?? "")
+       //print(productSpecificationName ?? "")
         
-        print(valueOfProductSpecification ?? "")
+        //print(valueOfProductSpecification ?? "")
 
         
         

@@ -23,57 +23,57 @@ class ProductDetailInfoTest: XCTestCase {
     
     func test_Init_TakesTitle(){
         
-        let productDetail = ProductDetailInfo(title: "Bosch SMV53M40GB Fully Integrated Dishwasher")
-        XCTAssertEqual(productDetail.title, "Bosch SMV53M40GB Fully Integrated Dishwasher", "should set title")
+        let productDetail = ProductDetailInfo(title: tTitle)
+        XCTAssertEqual(productDetail.title,tTitle)
 
     }
     
     func test_Init_TakesMedia(){
         
-        let productDetail = ProductDetailInfo(imageUrl: ["//johnlewis.scene7.com/is/image/JohnLewis/234326372?"])
+        let productDetail = ProductDetailInfo(imageUrl: [tImageUrl])
         XCTAssertEqual(productDetail.imageUrl?.count,1, "should set media")
         
     }
     
     func test_Init_TakesPrice(){
         
-        let productDetail = ProductDetailInfo(price: "499.00")
-        XCTAssertEqual(productDetail.price, "499.00", "should set price")
+        let productDetail = ProductDetailInfo(price:kNow)
+        XCTAssertEqual(productDetail.price, kNow, "should set price")
         
     }
     
     func test_Init_TakesProductInformation(){
         
-        let productDetail = ProductDetailInfo(productInformation: "this product used to wash a dish")
-        XCTAssertEqual(productDetail.productInformation, "this product used to wash a dish", "should set ProductInformation")
+        let productDetail = ProductDetailInfo(productInformation: tProductInformation)
+        XCTAssertEqual(productDetail.productInformation,tProductInformation)
         
     }
     
     func test_Init_TakesIncludedServices(){
         
-        let productDetail = ProductDetailInfo(includedServices: "2 year guarantee included")
-        XCTAssertEqual(productDetail.includedServices, "2 year guarantee included", "should set IncludedServices")
+        let productDetail = ProductDetailInfo(includedServices: tIncludedServices)
+        XCTAssertEqual(productDetail.includedServices, tIncludedServices)
         
     }
     
     func test_Init_TakesCode(){
         
-        let productDetail = ProductDetailInfo(code: "88701205")
-        XCTAssertEqual(productDetail.code, "88701205", "should set TakesCode")
+        let productDetail = ProductDetailInfo(code: tProductCode)
+        XCTAssertEqual(productDetail.code, tProductCode, "should set TakesCode")
         
     }
     
     func test_Init_TakesProductSpecificationName(){
         
-        let productDetail = ProductDetailInfo(productSpecificationName: "Dimensions")
-        XCTAssertEqual(productDetail.productSpecificationName, "Dimensions", "should set ProductSpecificationName")
+        let productDetail = ProductDetailInfo(productSpecificationName:tProductSpecificationName)
+        XCTAssertEqual(productDetail.productSpecificationName, tProductSpecificationName)
         
     }
     
     func test_Init_TakesValueOfProductSpecification(){
         
-        let productDetail = ProductDetailInfo(valueOfProductSpecification: "H81.5 x W59.8 x D55cm")
-        XCTAssertEqual(productDetail.valueOfProductSpecification, "H81.5 x W59.8 x D55cm", "ProductSpecification")
+        let productDetail = ProductDetailInfo(valueOfProductSpecification: tValueOfProductSpecification)
+        XCTAssertEqual(productDetail.valueOfProductSpecification, tValueOfProductSpecification)
         
     }
     

@@ -33,13 +33,9 @@ class ProductDetailInfoManagerTest: XCTestCase {
         var productDetailInfoObj = ProductDetailInfo()
         
         sut.getTheProductDetailInfo(productID:"1913470") { (productDetailInfo) in
-            
             productDetailInfoObj = productDetailInfo
-            
-            print(productDetailInfoObj.title ?? "")
-            
+            //print(productDetailInfoObj.title ?? "")
             tokenExpectation.fulfill()
-            
         }
         
         waitForExpectations(timeout: 3) { (error) in
@@ -67,7 +63,7 @@ class ProductDetailInfoManagerTest: XCTestCase {
             
             productDetailInfoObj = productDetailInfo
             
-            print(productDetailInfoObj.title ?? "")
+            //print(productDetailInfoObj.title ?? "")
             
             tokenExpectation.fulfill()
             

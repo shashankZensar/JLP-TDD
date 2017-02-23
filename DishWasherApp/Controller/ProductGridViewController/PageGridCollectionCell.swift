@@ -10,10 +10,10 @@ import UIKit
 
 class PageGridCollectionCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var title: UILabel!
+    // MARK: - IBOutlet
 
-    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
 
 }

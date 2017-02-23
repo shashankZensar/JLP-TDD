@@ -1,0 +1,12 @@
+PODS:
+  - Kingfisher (3.5.0)
+
+DEPENDENCIES:
+  - Kingfisher (~> 3.0)
+
+SPEC CHECKSUMS:
+  Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
+
+PODFILE CHECKSUM: 889ab95d1e41ff4fa2a573287f67884211b01784
+
+COCOAPODS: 1.1.1

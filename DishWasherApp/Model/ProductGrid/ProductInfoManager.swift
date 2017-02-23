@@ -10,6 +10,16 @@ import Foundation
 
 public class ProductInfoManager{
     
+    /**
+     This function call Network manager to get product grid data from server
+     
+     - parameter strUrl: ProductInfo
+     
+     - parameter completion: completion handler which give array of ProductInfo Object
+     
+     - returns: No return value
+     
+     */
     func getTheProductInfo(strUrl:String,completion: @escaping (Array<ProductInfo>) -> Void){
         
         let networkManagerObj = NetWorkManager()
@@ -34,11 +44,21 @@ public class ProductInfoManager{
         
     }
     
+    /**
+     This function parse the Dic get from call Network manager
+     
+     - parameter dic: String as key and AnyObjec as Value
+     
+     - parameter completion: completion handler which give array of ProductInfo Object
+     
+     - returns: array of ProductInfo
+     
+     */
     private func parseTheDic(dic:[String:AnyObject])->[ProductInfo]{
         
         var arrProductInfo: [ProductInfo] = []
 
-        guard let arrProduct = dic["products"]else{
+        guard let arrProduct = dic[kProducts]else{
             return arrProductInfo
         }
         
@@ -48,26 +68,26 @@ public class ProductInfoManager{
                 return arrProductInfo
             }
             
-            let productId = dicProduct["productId"] as? String
+            let productId = dicProduct[kproductId] as? String
             
-            print(productId ?? "")
+            //print(productId ?? "")
             
-            let title = dicProduct["title"] as? String
+            let title = dicProduct[kTitle] as? String
             
-            print(title ?? "")
+            //print(title ?? "")
             
-            let image = dicProduct["image"] as? String
+            let image = dicProduct[kImage] as? String
             
-            print(image ?? "")
+            //print(image ?? "")
             
-            let price = dicProduct["price"] as? [String:String]
+            let price = dicProduct[kPrice] as? [String:String]
             
-            let was = price?["was"]
-            let then1 = price?["then1"]
-            let then2 = price?["then2"]
-            let now = price?["now"]
-            let uom = price?["uom"]
-            let currency = price?["currency"]
+            let was = price?[kWas]
+            let then1 = price?[kThen1]
+            let then2 = price?[kThen2]
+            let now = price?[kNow]
+            let uom = price?[kUom]
+            let currency = price?[kCurrency]
             
             let priceObj = Price(was: was,
                                  then1: then1,
@@ -86,7 +106,7 @@ public class ProductInfoManager{
             arrProductInfo.append(productInfoObj)
         }
     
-        print(arrProductInfo.count)
+        //print(arrProductInfo.count)
         
         return arrProductInfo
     }

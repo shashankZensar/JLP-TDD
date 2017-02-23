@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol SessionProtocol {
     
     func dataTask(
@@ -24,8 +23,22 @@ enum WebserviceError : Error {
 
 class NetWorkManager {
     
+    // MARK: - Global Data Variable
     lazy var session: SessionProtocol = URLSession.shared
     
+    
+    // MARK: - Custom Function
+
+    /**
+     This function get data from Server using Nsurl Session.
+     
+     - parameter strUrl: Url String contain Server API
+     
+     - parameter completion: completion handler which give Dictionary After Server Response
+     
+     - returns: No Return Value
+     
+     */
     func getDataFromServer(strUrl:String,completion: @escaping (Dictionary<String,AnyObject>?, Error?) -> Void){
         
         guard let url = URL(string:strUrl) else {

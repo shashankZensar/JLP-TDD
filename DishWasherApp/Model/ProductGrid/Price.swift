@@ -16,6 +16,23 @@ struct Price {
     var uom:String?
     var currency:String?
     
+    
+    /**
+     Initializer for Price.
+     
+     - parameter was: price was
+     
+     - parameter then1: price then1
+     
+     - parameter then2: price then2
+     
+     - parameter now: price now
+     
+     - parameter uom: price uom
+     
+     - parameter currency: price currency
+     
+     */
     init(was:String?=nil,then1:String?=nil,then2:String?=nil,now:String?=nil,uom:String?=nil,currency:String?=nil) {
         
         self.was = was

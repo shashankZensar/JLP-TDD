@@ -13,8 +13,7 @@ import Foundation
 
 let kProduct_InfoCell = "productInfoCell"
 let kImageColectionView = "imageColectionView"
-
-
+let kProductPageController = "ProductPageController"
 
 // MARK: -  Json Parse detail Constant
 
@@ -43,11 +42,15 @@ let kThen1 = "then1"
 let kThen2 = "then2"
 let kUom = "uom"
 let kCurrency = "currency"
+let kMain = "Main"
+
 
 
 // MARK: - Network Api
 
-let kProductGridAPI = "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20"
+let kBaseUrl = "https://api.johnlewis.com/v1/products/"
+
+let kProductGridAPI = "search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20"
 
 
 let kDishWashers = "Dishwashers"

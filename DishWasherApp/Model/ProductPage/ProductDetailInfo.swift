@@ -10,7 +10,9 @@ import Foundation
 
 struct  ProductDetailInfo{
     
-    let title:String?
+    // MARK: - Global Data Variable
+    
+    let title:String?      
     let imageUrl:[String]?
     let price:String?
     let productInformation:String?
@@ -20,6 +22,30 @@ struct  ProductDetailInfo{
     let productSpecificationName:String?
     let valueOfProductSpecification:String?
     
+    
+    // MARK: - init methods
+
+    
+    /**
+     Initializer for ProductDetailInfo.
+     
+     - parameter title: product titile
+     
+     - parameter imageUrl: arr of product imageUrl
+     
+     - parameter productInformation: product productInformation
+     
+     - parameter includedServices: product includedServices
+     
+     - parameter code: product code
+     
+     - parameter productSpecificationName: product Specification Name
+     
+     - parameter valueOfProductSpecification: product valueOfProductSpecification
+     
+     - parameter displaySpecialOffer: product displaySpecialOffer
+
+     */
     init(title:String?=nil,
          imageUrl:[String]?=nil,
          price:String?=nil,

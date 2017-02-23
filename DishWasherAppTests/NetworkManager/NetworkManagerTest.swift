@@ -24,14 +24,12 @@ class NetworkManagerTest: XCTestCase {
         super.tearDown()
     }
     
-    func test_Login_UsesExpectedURL() {
-        
-        
-        
+    func test_UsesExpectedURL() {
+    
         let mockURLSession = MockURLSession(data: nil, urlResponse: nil, error: nil)
         sut.session = mockURLSession
         
-        sut.getDataFromServer(strUrl: "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20") { (dic, error) in
+        sut.getDataFromServer(strUrl:tProductGridAPI) { (dic, error) in
             
         }
         
@@ -39,18 +37,17 @@ class NetworkManagerTest: XCTestCase {
         guard let url = mockURLSession.url else { XCTFail(); return }
         let urlComponents = URLComponents(url: url,
                                           resolvingAgainstBaseURL: true)
-        XCTAssertEqual(urlComponents?.host, "api.johnlewis.com")
+        XCTAssertEqual(urlComponents?.host,tBaseUrl)
         
-        XCTAssertEqual(urlComponents?.path, "/v1/products/search")
+        XCTAssertEqual(urlComponents?.path,tPathOfUrl)
         
-        XCTAssertEqual(urlComponents?.query,
-                       "q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20")
+        XCTAssertEqual(urlComponents?.query,tQuery)
     }
     
     func test_getDataFromServer_WhenSuccessful_CreatesDic(){
         
         
-        let dic = ["product":[["dishwash1":"dish1"],["dishwash1":"dish2"]]]
+        let dic = [tProduct:[[tDishwash1:tDish1],[tDishwash1:tDish2]]]
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
@@ -61,9 +58,9 @@ class NetworkManagerTest: XCTestCase {
             sut.session = mockURLSession
             
             
-            let tokenExpectation = expectation(description: "Token")
+            let tokenExpectation = expectation(description: tToken)
             var catchedToken: [String:AnyObject]? = nil
-            sut.getDataFromServer(strUrl: "https://www.google.com", completion: { (dic, error) in
+            sut.getDataFromServer(strUrl: tImageUrl, completion: { (dic, error) in
                 catchedToken = dic
                 tokenExpectation.fulfill()
             })
@@ -71,17 +68,17 @@ class NetworkManagerTest: XCTestCase {
             
             waitForExpectations(timeout: 3) { (error) in
                 
-                let arrOFProducts = catchedToken?["product"] as! NSArray
+                let arrOFProducts = catchedToken?[tProduct] as! NSArray
                 
                 var dicOfProduct = arrOFProducts[0] as! [String:String]
                 
-                print(dicOfProduct["dishwash1"]!)
+                //print(dicOfProduct[tdishwash1]!)
                 
-                XCTAssertEqual(dicOfProduct["dishwash1"]!,"dish1")
+                XCTAssertEqual(dicOfProduct[tDishwash1]!,tDish1)
             }
             
         } catch {
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         }
         
     
@@ -97,11 +94,11 @@ class NetworkManagerTest: XCTestCase {
         sut.session = mockURLSession
         
         
-        let errorExpectation = expectation(description: "Error")
+        let errorExpectation = expectation(description: tError)
         var catchedError: Error? = nil
         
         
-        sut.getDataFromServer(strUrl: "https://www.google.com") { (dic , error) in
+        sut.getDataFromServer(strUrl:tImageUrl) { (dic , error) in
             catchedError = error
             errorExpectation.fulfill()
         }
@@ -120,11 +117,11 @@ class NetworkManagerTest: XCTestCase {
         sut.session = mockURLSession
         
         
-        let errorExpectation = expectation(description: "Error")
+        let errorExpectation = expectation(description: tError)
         var catchedError: Error? = nil
         
         
-        sut.getDataFromServer(strUrl: "https://www.google.com") { (dic , error) in
+        sut.getDataFromServer(strUrl: tImageUrl) { (dic , error) in
             catchedError = error
             errorExpectation.fulfill()
         }
@@ -137,7 +134,7 @@ class NetworkManagerTest: XCTestCase {
     func test_getDataFromServer_WhenResponseHasError_ReturnsError() {
         
         
-        let error = NSError(domain: "SomeError",
+        let error = NSError(domain: tError,
                             code: 1234,
                             userInfo: nil)
         let dic = ["token": "1234567890"]
@@ -150,11 +147,11 @@ class NetworkManagerTest: XCTestCase {
             sut.session = mockURLSession
             
             
-            let errorExpectation = expectation(description: "Error")
+            let errorExpectation = expectation(description: tError)
             var catchedError: Error? = nil
             
             
-            sut.getDataFromServer(strUrl: "https://www.google.com") { (dic , error) in
+            sut.getDataFromServer(strUrl: tImageUrl) { (dic , error) in
                 catchedError = error
                 errorExpectation.fulfill()
             }
@@ -164,7 +161,7 @@ class NetworkManagerTest: XCTestCase {
             }
             
         }catch {
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         }
         
     }

@@ -36,7 +36,7 @@ class ProductInfoManagerTest: XCTestCase {
             
             arrProductInfoObj = arrProductInfo
             
-            print(arrProductInfo)
+            //print(arrProductInfo)
 
             tokenExpectation.fulfill()
         }
@@ -59,7 +59,7 @@ class ProductInfoManagerTest: XCTestCase {
             
             arrProductInfoObj = arrProductInfo
             
-            print(arrProductInfo)
+            //print(arrProductInfo)
             
             tokenExpectation.fulfill()
         }
