@@ -87,37 +87,6 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        if UIDevice.current.orientation.isLandscape {
-//        
-//            for constraint in mainView.constraints as [NSLayoutConstraint] {
-//                if constraint.identifier == "mainViewWidth" {
-//                   mainView.removeConstraint(constraint)
-//                    mainView.addConstraint(NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem:nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 0.6, constant: 0))
-//                    break
-//                }
-//            }
-//            
-//            
-//        
-//            self.mainView.setNeedsUpdateConstraints()
-//            self.mainView.setNeedsLayout()
-//            
-//
-//            
-//        } else {
-//            
-//            for constraint in mainView.constraints as [NSLayoutConstraint] {
-//                if constraint.identifier == "mainViewWidth" {
-//                    mainView.removeConstraint(constraint)
-//                    mainView.addConstraint(NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem:nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 0))
-//                    break
-//                }
-//            }
-//            
-//            self.mainView.setNeedsUpdateConstraints()
-//            self.mainView.setNeedsLayout()
-//
-//        }
         
         setFrameAccordingToOrientation()
 
