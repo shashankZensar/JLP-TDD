@@ -20,16 +20,15 @@ class PageGridDataProviderTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         sut = PageGridDataProvider()        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name:tMain, bundle: nil)
         controller = storyboard.instantiateViewController(
-            withIdentifier: "PageGridViewController") as! PageGridViewController
+            withIdentifier: tPageGridViewController) as! PageGridViewController
         
         _ = controller.view
         
         collectionView = controller.collectionView
         collectionView.dataSource = sut
         collectionView.delegate = sut
-        
         
     }
     
@@ -38,14 +37,14 @@ class PageGridDataProviderTest: XCTestCase {
         super.tearDown()
     }
     
-    
     func test_NumberOfItems_InSection() {
         
-        sut.arrProductInfoObj.append(ProductInfo(productId: "678", price:Price(was: "", then1: "", then2: "", now: "567", uom: "", currency: "INR"), title: "Dishwashher", imageUrl:"https://google.com"))
+        sut.arrProductInfoObj.append(ProductInfo(productId: tProductId, price:Price(was: "", then1: "", then2: "", now: tNow, uom: "", currency:tCurrency), title:tTitle, imageUrl:tImageUrl))
+    
         
         XCTAssertEqual(collectionView.numberOfItems(inSection: 0), 1)
         
-        sut.arrProductInfoObj.append(ProductInfo(productId: "678", price:Price(was: "", then1: "", then2: "", now: "567", uom: "", currency: "INR"), title: "Dishwashher", imageUrl:"https://google.com"))
+        sut.arrProductInfoObj.append(ProductInfo(productId:tProductId, price:Price(was: "", then1: "", then2: "", now:tNow, uom: "", currency:tCurrency), title:tTitle, imageUrl:tImageUrl))
         
         collectionView.reloadData()
         
@@ -54,36 +53,22 @@ class PageGridDataProviderTest: XCTestCase {
     }
     
     func test_CellForRow_ReturnsItemCell() {
-        
-        sut.arrProductInfoObj.append(ProductInfo(productId: "678", price:Price(was: "", then1: "", then2: "", now: "567", uom: "", currency: "INR"), title: "Dishwashher", imageUrl:"https://google.com"))
+    
+         sut.arrProductInfoObj.append(ProductInfo(productId: tProductId, price:Price(was: "", then1: "", then2: "", now: tNow, uom: "", currency:tCurrency), title:tTitle, imageUrl:tImageUrl))
         
         collectionView.reloadData()
         
-        print(collectionView.numberOfItems(inSection: 0))
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+//        layout.itemSize = CGSize(width: 90, height: 120)
+//    
+//        self.collectionView.setCollectionViewLayout(layout, animated: true)
         
-        let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0))
+        let cell = self.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) 
         
         
         XCTAssertTrue(cell is PageGridCollectionCell)
     }
     
-    
 }
 
-extension PageGridDataProviderTest {
-    
-    class MockCollectionView: UICollectionView {
-        var cellGotDequeued = false
-        
-        
-        override func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
-            
-            cellGotDequeued = true
-            
-            return super.dequeueReusableCell(withReuseIdentifier:identifier, for: indexPath)
-            
-            
-        }
-        
-    }
-}

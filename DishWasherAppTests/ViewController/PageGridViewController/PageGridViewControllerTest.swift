@@ -16,9 +16,9 @@ class PageGridViewControllerTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: tMain, bundle: nil)
         let viewController = storyboard.instantiateViewController(
-            withIdentifier: "PageGridViewController")
+            withIdentifier: tPageGridViewController)
          sut = viewController as! PageGridViewController
         _ = sut.view
     }
@@ -40,6 +40,10 @@ class PageGridViewControllerTest: XCTestCase {
     func test_LoadingView_SetsDataSourceAndDelegateToSameObject() {
         XCTAssertEqual(sut.collectionView.dataSource as? PageGridDataProvider,
                        sut.collectionView.delegate as? PageGridDataProvider)
+    }
+    
+    func test_HasActivityIndicator() {
+        XCTAssertNotNil(sut.activityIndicator)
     }
     
 }
