@@ -30,4 +30,5 @@ ProductPageController - Controller communicate to ProductDetailInfoManager for d
 NetWorkManager - Network manager handle server request and response.
 
 
-
+<b>Note :<b>
+Used Third Party Library named Kingfisher for image cache. 
