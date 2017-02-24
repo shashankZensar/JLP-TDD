@@ -56,5 +56,6 @@ let kProductGridAPI = "search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&
 let kDishWashers = "Dishwashers"
 let kProductInformationLbl = "Product Information"
 let kProductSpecificationLbl = "Product Specification"
-
-
+let kProductSpecificationName = "productSpecificationName"
+let kValueOfProductSpecification = "valueOfProductSpecification"
+let kTableViewCell = "TableViewCell"

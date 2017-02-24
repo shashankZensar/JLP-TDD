@@ -39,6 +39,7 @@
 		86271D691E5F033D0002253F /* ProductPageDataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86271D681E5F033D0002253F /* ProductPageDataProviderTest.swift */; };
 		86271D6B1E5F08D40002253F /* DishWasherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86271D6A1E5F08D40002253F /* DishWasherAppTests.swift */; };
 		86271D6E1E5F096A0002253F /* ConstantTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86271D6D1E5F096A0002253F /* ConstantTest.swift */; };
+		866421821E601D1400D61C38 /* ProductSpecCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866421811E601D1400D61C38 /* ProductSpecCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		86271D681E5F033D0002253F /* ProductPageDataProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPageDataProviderTest.swift; sourceTree = "<group>"; };
 		86271D6A1E5F08D40002253F /* DishWasherAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishWasherAppTests.swift; sourceTree = "<group>"; };
 		86271D6D1E5F096A0002253F /* ConstantTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantTest.swift; sourceTree = "<group>"; };
+		866421811E601D1400D61C38 /* ProductSpecCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSpecCell.swift; sourceTree = "<group>"; };
 		89D3695187506DE163A66290 /* Pods-DishWasherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishWasherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishWasherApp/Pods-DishWasherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,6 +312,7 @@
 				860A43A81E5DAB5300182EE8 /* ProductPageController.swift */,
 				860A43AA1E5DBD0100182EE8 /* ProductDetailCollectionCell.swift */,
 				0AA2141A1E5E735D00006493 /* ProductPageDataProvider.swift */,
+				866421811E601D1400D61C38 /* ProductSpecCell.swift */,
 			);
 			path = ProductPageController;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				860A43AB1E5DBD0100182EE8 /* ProductDetailCollectionCell.swift in Sources */,
+				866421821E601D1400D61C38 /* ProductSpecCell.swift in Sources */,
 				0AD291C91E5B4B4100DDC77F /* DishWasherApp.xcdatamodeld in Sources */,
 				860A43A61E5DAB2D00182EE8 /* PageGridDataProvider.swift in Sources */,
 				0AD291F41E5B4C0200DDC77F /* ProductInfo.swift in Sources */,

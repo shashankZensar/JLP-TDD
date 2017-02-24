@@ -111,37 +111,39 @@ class ProductDetailInfoManager{
         
         let includedServices = arrIncludedServices?[0]
         
-        //print(includedServices ?? "")
-
-        
         let feature = detail?[kFeatures] as? [AnyObject]
         
-        //print(feature?[0] ?? [])
         
         let attributes = feature?[0][kAttributes] as? [AnyObject]
         
-        //print(attributes ?? [])
+        var arrOFAttribute:[[String:String]] = []
         
-        let productSpecificationName = attributes?[0][kName] as? String
         
-        let valueOfProductSpecification = attributes?[0][kValue] as? String
+        for i in 0 ..< (attributes?.count)! {
         
-       //print(productSpecificationName ?? "")
+            var dic:[String:String] = [:]
+            
+            let productSpecificationName = attributes?[i][kName] as? String
+            let valueOfProductSpecification = attributes?[i][kValue] as? String
+            
+            dic[kProductSpecificationName] = productSpecificationName
+            
+            dic[kValueOfProductSpecification] = valueOfProductSpecification
+            
+            arrOFAttribute.append(dic)
         
-        //print(valueOfProductSpecification ?? "")
+        }
+    
 
-        
-        
-        
         return ProductDetailInfo(title: title,
                                  imageUrl: imagesUrl,
                                  price: price,
                                  productInformation: productInformation,
                                  includedServices: includedServices,
                                  code: code,
-                                 productSpecificationName: productSpecificationName,
-                                 valueOfProductSpecification: valueOfProductSpecification,
-                                 displaySpecialOffer: displaySpecialOffer)
+                                 displaySpecialOffer: displaySpecialOffer,
+                                 arrOFAttribute:arrOFAttribute
+                                )
     }
 
 

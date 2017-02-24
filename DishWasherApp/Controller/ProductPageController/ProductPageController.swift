@@ -9,8 +9,9 @@
 import UIKit
 import Kingfisher
 
-class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
+class ProductPageController: UIViewController,scrollViewScrollEndDelegate,UITableViewDelegate,UITableViewDataSource{
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     // MARK: - IBOulet
     @IBOutlet weak var priceLbl: UILabel!
@@ -36,13 +37,15 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
     @IBOutlet weak var viewProductSubTopConstaraint: NSLayoutConstraint!
     @IBOutlet weak var mainView: UIView!
 
+    @IBOutlet weak var tableviewHeight: NSLayoutConstraint!
     
     // MARK: - Global Data Variable
     var productDetailInfoManagerObj = ProductDetailInfoManager()
     var imageUrl:[String] = []
     var productID:String = ""
-    
-    
+    var productTitle:String = ""
+    var arrOFAttribute:[[String:String]] = []
+
     
     // MARK: - ViewController Function
     override func viewDidLoad() {
@@ -52,23 +55,58 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
         self.view.setNeedsLayout()
         viewRightContainerWidthConstraint.constant = 0
         self.view.setNeedsUpdateConstraints()
-        
-        
         setFrameAccordingToOrientation(viewWidth: self.view.frame.width)
+        self.navigationItem.title = productTitle
+        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(size.width)
+        setFrameAccordingToOrientation(viewWidth: size.width)
 
     }
     
-    func setupInitalScrollViewWidth(){
+    
+    
+    // MARK: - class Function
+    
+    /**
+     This function will assign data to view labels.
+     
+     - parameter productDetailinfo: product detail object
+
+     - returns: No Return Value
+     
+     */
+    func assignProductDetailToLabel(productDetailinfo:ProductDetailInfo){
         
-        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
-            
-            scrollViewWidthConstraint.constant = self.view.frame.width * 0.6
-            
-        } else if  UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
-            
-            scrollViewWidthConstraint.constant = self.view.frame.width
-            
-        }
+        self.priceLbl.text = "£" + productDetailinfo.price!
+        self.displayOfferLbl.text = productDetailinfo.displaySpecialOffer
+        self.includeServiceLbl.text = productDetailinfo.includedServices
+        let attributedString = try? NSAttributedString(data: (productDetailinfo.productInformation?.data(using: String.Encoding.unicode)!)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        self.productInformationDataLbl.text = "Product Code :" + productDetailinfo.code!
+        self.productInformationLbl.text = kProductInformationLbl
+        self.productSpecificationLbl.text = kProductSpecificationLbl
+        self.productCodeLbl.attributedText = attributedString
+        //self.productSpecificationNameLbl.text = productDetailinfo.productSpecificationName
+        //self.productSpecificationValueLbl.text = productDetailinfo.valueOfProductSpecification
+        self.imageUrl = productDetailinfo.imageUrl!
+        self.pageCtrl.numberOfPages = self.imageUrl.count
+        self.arrOFAttribute = productDetailinfo.arrOFAttribute
+        
+        
+        
+        setFrameAccordingToOrientation(viewWidth: self.view.frame.width)
+        
+        self.view.setNeedsLayout()
+
+        
+        tableviewHeight.constant = 44  * CGFloat(arrOFAttribute.count)
+        
+        self.view.setNeedsUpdateConstraints()
+
+        
+        tableView.reloadData()
     }
     
     /**
@@ -106,72 +144,52 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
         }
         
     }
-
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(size.width)
-        setFrameAccordingToOrientation(viewWidth: size.width)
-
-    }
     
+    /**
+     This Function set viewGallery height and width 
+     
+     - returns:No Return value
+     */
     func setFrameAccordingToOrientation(viewWidth:CGFloat)  {
         
         self.view.setNeedsLayout()
         
+        let height = preparePriceViewForWidth()
+        
         if UIDevice.current.orientation.isLandscape {
-            //viewWidth = 1024
             scrollViewWidthConstraint.constant = viewWidth * 0.6
             viewRightContainerWidthConstraint.constant = viewWidth * 0.4
             viewProductSubTopConstaraint.constant = 0
-            let frame = CGRect(x: 0, y: 0, width: viewWidth * 0.4, height: 158)
+            let frame = CGRect(x: 0, y: 0, width: viewWidth * 0.4, height: height)
             viewProductMain.removeFromSuperview()
             viewProductMain.frame = frame
             viewRightContainer.addSubview(viewProductMain)
-            
+            priceLbl.frame = CGRect(x: 20, y: 0, width: viewWidth * 0.4, height: priceLbl.frame.size.height)
+            displayOfferLbl.frame = CGRect(x: 20, y: priceLbl.frame.size.height, width: viewWidth * 0.4, height: displayOfferLbl.frame.size.height)
+            includeServiceLbl.frame = CGRect(x: 0, y:(priceLbl.frame.size.height + includeServiceLbl.frame.size.height), width: viewWidth * 0.4, height: includeServiceLbl.frame.size.height)
         }else{
-            //viewWidth = 768
             scrollViewWidthConstraint.constant = viewWidth
             viewRightContainerWidthConstraint.constant = 0
-            viewProductSubTopConstaraint.constant = 158
-            let frame = CGRect(x: 0, y: 307, width: viewWidth , height: 158)
+            viewProductSubTopConstaraint.constant = height
+            let frame = CGRect(x: 0, y: 307, width: viewWidth , height: height)
             viewProductMain.removeFromSuperview()
             viewProductMain.frame = frame
             scrollView.addSubview(viewProductMain)
-            
+            priceLbl.frame = CGRect(x: 20, y: 0, width: viewWidth * 0.4, height: priceLbl.frame.size.height)
+            displayOfferLbl.frame = CGRect(x: 20, y: priceLbl.frame.size.height, width: viewWidth, height: displayOfferLbl.frame.size.height)
+            includeServiceLbl.frame = CGRect(x: 20, y:(priceLbl.frame.size.height + includeServiceLbl.frame.size.height), width: viewWidth, height: includeServiceLbl.frame.size.height)
         }
+        collectionView.reloadData()
         self.view.setNeedsUpdateConstraints()
+        
     }
-    func preparePriceViewForWidth(_ width: CGFloat) -> CGFloat {
-        var height = 0
-        //
+    
+    func preparePriceViewForWidth() -> CGFloat {
+        var height = priceLbl.frame.size.height
+        height += displayOfferLbl.frame.size.height
+        height += includeServiceLbl.frame.size.height
         return CGFloat(height)
-    }
-    
-    // MARK: - class Function
-    
-    /**
-     This function will assign data to view labels.
-     
-     - parameter productDetailinfo: product detail object
-
-     - returns: No Return Value
-     
-     */
-    func assignProductDetailToLabel(productDetailinfo:ProductDetailInfo){
-        
-        self.priceLbl.text = "£" + productDetailinfo.price!
-        self.displayOfferLbl.text = productDetailinfo.displaySpecialOffer
-        self.includeServiceLbl.text = productDetailinfo.includedServices
-        let attributedString = try? NSAttributedString(data: (productDetailinfo.productInformation?.data(using: String.Encoding.unicode)!)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
-        self.productInformationDataLbl.text = "Product Code :" + productDetailinfo.code!
-        self.productInformationLbl.text = kProductInformationLbl
-        self.productSpecificationLbl.text = kProductSpecificationLbl
-        self.productCodeLbl.attributedText = attributedString
-        self.productSpecificationNameLbl.text = productDetailinfo.productSpecificationName
-        self.productSpecificationValueLbl.text = productDetailinfo.valueOfProductSpecification
-        self.imageUrl = productDetailinfo.imageUrl!
-        self.pageCtrl.numberOfPages = self.imageUrl.count
-        
     }
     
     
@@ -186,9 +204,20 @@ class ProductPageController: UIViewController,scrollViewScrollEndDelegate{
      
      */
     func didScrollViewEndScrolling(scrollViewContentOffset:CGFloat){
-        
         let currentPage  = scrollViewContentOffset/self.collectionView.frame.size.width
         pageCtrl.currentPage = Int(currentPage)
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrOFAttribute.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCell, for: indexPath) as! ProductSpecCell
+        cell.techLbl.text = self.arrOFAttribute[indexPath.row][kProductSpecificationName]
+        cell.valueLbl.text = self.arrOFAttribute[indexPath.row][kValueOfProductSpecification]
+        
+        return cell
     }
 }

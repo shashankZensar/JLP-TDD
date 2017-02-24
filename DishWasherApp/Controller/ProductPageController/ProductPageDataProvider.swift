@@ -68,20 +68,8 @@ class ProductPageDataProvider: NSObject,UICollectionViewDataSource,UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        var sizeWidth:CGFloat = 0.0
-        
-        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
-            
-            sizeWidth = collectionView.frame.width + 200
-            
-        } else if  UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
-            
-            sizeWidth = collectionView.frame.width
-        }
-        
-        
-        return CGSize(width: sizeWidth, height: 266)
+
+        return CGSize(width:collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
     
 

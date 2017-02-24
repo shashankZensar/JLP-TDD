@@ -21,6 +21,7 @@ struct  ProductDetailInfo{
     let code:String?
     let productSpecificationName:String?
     let valueOfProductSpecification:String?
+    var arrOFAttribute:[[String:String]] = []
     
     
     // MARK: - init methods
@@ -53,7 +54,7 @@ struct  ProductDetailInfo{
          includedServices:String?=nil,
          code:String?=nil,
          productSpecificationName:String?=nil,
-         valueOfProductSpecification:String?=nil,displaySpecialOffer:String?=nil) {
+         valueOfProductSpecification:String?=nil,displaySpecialOffer:String?=nil,arrOFAttribute:[[String:String]]?=nil) {
         
         self.title = title
         self.imageUrl = imageUrl
@@ -64,7 +65,7 @@ struct  ProductDetailInfo{
         self.displaySpecialOffer = displaySpecialOffer
         self.productSpecificationName = productSpecificationName
         self.valueOfProductSpecification = valueOfProductSpecification
-
+        self.arrOFAttribute = arrOFAttribute!
         
     }
     
