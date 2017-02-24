@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 protocol collectionViewActionDelegate {
-    func collectionViewDidSelect(productID:String)
+    func collectionViewDidSelect(productID:String,productTitle:String)
 }
 
 class PageGridDataProvider: NSObject,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
@@ -65,7 +65,7 @@ class PageGridDataProvider: NSObject,UICollectionViewDataSource,UICollectionView
     // MARK: - UICollectionDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.collectionViewDidSelect(productID: arrProductInfoObj[indexPath.item].productId!)
+        delegate?.collectionViewDidSelect(productID: arrProductInfoObj[indexPath.item].productId!,productTitle:arrProductInfoObj[indexPath.item].title! )
     }
     
     // MARK: - UICollectionViewFlowLayout

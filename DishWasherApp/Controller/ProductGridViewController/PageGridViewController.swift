@@ -29,6 +29,15 @@ class PageGridViewController: UIViewController,collectionViewActionDelegate {
         self.navigationItem.title = kDishWashers
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationItem.title = kDishWashers
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.title = ""
+        self.navigationItem.backBarButtonItem?.title = ""
+    }
+    
     // MARK: - collectionViewActionDelegate Function
     
     /**
@@ -38,11 +47,12 @@ class PageGridViewController: UIViewController,collectionViewActionDelegate {
      
      - returns:No Return value
      */
-    func collectionViewDidSelect(productID:String){
+    func collectionViewDidSelect(productID:String,productTitle:String){
         let storyboard = UIStoryboard(name: kMain, bundle: nil)
         let viewController = storyboard.instantiateViewController(
             withIdentifier: kProductPageController)  as! ProductPageController
         viewController.productID = productID
+        viewController.productTitle = productTitle
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
