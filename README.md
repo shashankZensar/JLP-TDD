@@ -1,7 +1,9 @@
 # JLP-TDD
 JLP Assignment for TDD
 
-Project aritecture
+<b>Project aritecture Diagram</b>
+
+<a target="_blank" href="https://imageshack.com/i/pmAACM0Vp"><img src="http://imagizer.imageshack.us/v2/xq90/922/AACM0V.png" border="0"></a>
 
 <b>Model Layer : </b>
 
